@@ -1,8 +1,6 @@
 package com.landim.spring.service;
 
-import com.landim.spring.entities.Order;
 import com.landim.spring.entities.Product;
-import com.landim.spring.repositories.OrderRepository;
 import com.landim.spring.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
