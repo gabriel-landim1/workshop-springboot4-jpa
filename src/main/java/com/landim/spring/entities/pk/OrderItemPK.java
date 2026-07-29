@@ -1,5 +1,6 @@
 package com.landim.spring.entities.pk;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.landim.spring.entities.Order;
 import com.landim.spring.entities.Product;
 import jakarta.persistence.Embeddable;
@@ -17,6 +18,7 @@ import java.util.Objects;
 public class OrderItemPK implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;

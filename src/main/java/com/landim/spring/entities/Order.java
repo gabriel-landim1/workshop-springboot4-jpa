@@ -7,7 +7,9 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -30,6 +32,9 @@ public class Order implements Serializable {
     @JoinColumn(name = "client_id")
     private User user;
 
+    @OneToMany(mappedBy = "id.order", fetch = FetchType.EAGER)
+    private Set<OrderItem> items = new HashSet<>();
+
     public Order(){}
 
     public Order(Long id, Instant moment, OrderStatus orderStatus ,User user) {
@@ -37,6 +42,10 @@ public class Order implements Serializable {
         this.moment = moment;
         setOrderStatus(orderStatus);
         this.user = user;
+    }
+
+    public Set<OrderItem> getItems(){
+        return items;
     }
 
     public OrderStatus getOrderStatus() {
